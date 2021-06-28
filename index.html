@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Queenstown Tourism - Home of Adventure</title>
+
+  <!-- favicon linked -->
+  <link rel="shortcut icon" type="image/png" href="img/qt-icon.png">
+
+  <!-- fontawesome linked -->
+  <link rel="stylesheet" href="resources/font-awesome/css/font-awesome.min.css">
+
+  <!-- adobe fonts linked -->
+  <link rel="stylesheet" href="https://use.typekit.net/jwi1eot.css">
+
+  <!-- fullpage css linked -->
+  <link rel="stylesheet" href="css/fullpage.css">
+
+  <!-- hotel datepicker css linked -->
+  <link href="css/hotel-datepicker.css" rel="stylesheet">
+
+  <!-- mapbox linked -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
+
+  <!-- custom css linked -->
+  <link rel="stylesheet" href="css/custom.min.css">
+</head>
+
+<body>
+  <!-- loader starts -->
+  <div class="loader">
+    <svg class="circular" viewbox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10" />
+    </svg>
+  </div>
+  <!-- loader ends -->
+
+  <!-- info banner starts -->
+  <div class="banner">
+    <div class="banner-content">
+      <div class="banner-text">
+        <h3><strong>Travel Alert: Temporary border measures in place</strong></h3><br>
+        <em>New Zealand is currently at COVID-19 Alert Level 1. Quarantine-free travel is in place between Australia and New Zealand, however international borders remain closed to all other countries.</em><br><br>
+        <a href="https://covid19.govt.nz/travel/" target="_blank">
+          <strong>Read More</strong>
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+      <button class="banner-close">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+  <!-- info banner ends -->
+
+  <!-- fullpage starts -->
+  <div id="fullpage">
+    <!-- homepage section starts -->
+    <div class="section" id="home">
+      <video data-autoplay loop muted id="myVideo">
+        <source src="vid/video.mp4" type="video/mp4">
+      </video>
+      <div class="logo-section">
+        <img src="img/qtnz-hoa-logo.png" alt="Queenstown Home of Adventure Logo" /><br>
+        <button id="browseAccomodations">EXPLORE STAY OPTIONS</button>
+      </div>
+    </div>
+    <!-- homepage section ends -->
+
+    <!-- input selection section starts -->
+    <div class="section" id="stayData">
+      <div class="header">
+        <div id="goBackOne">
+          <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="input-section" id="parent" data-parsley-validate>
+        <h3>Select your stay<sup>*</sup></h3>
+        <input type="text" id="stayDates" value="" placeholder="Please Select" data-parsley-required="true">
+        <h3>Select adults<sup>*</sup></h3>
+        <select id="guestsQty" data-parsley-required="true">
+          <option selected disabled>Please Select</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+        <h3>Select meals<sup>*</sup></h3>
+        <select id="meals" data-parsley-required="true">
+          <option selected disabled>Please Select</option>
+          <option>No Meals</option>
+          <option>Only Breakfast</option>
+          <option>Only Lunch</option>
+          <option>Only Dinner</option>
+          <option>All</option>
+        </select>
+        <button id="getStayData">Confirm Selection</button>
+        <h5><sup>*</sup>Required fields</h5>
+        <h3><span id="errorMessage"></span></h3>
+      </div>
+    </div>
+    <!-- input selection section ends -->
+
+    <!-- available accommodation section starts -->
+    <div class="section" id="availableAccomodations">
+      <div class="header">
+        <div id="goBackTwo">
+          <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="info-section">
+        <div class="top-section">
+          <h1>Available Accomodations</h1>
+        </div>
+        <div class="bottom-section">
+          <div class="top">
+            <div class="container">
+              <div class="card">
+                <div class="img-cover">
+                  <img src="..." id="propertyOneImg" alt="">
+                </div>
+                <div class="desc">
+                  <h1><span id="propertyOneName"></span></h1><br><br>
+                  <button class="view-property" id="propertyOne">Reserve</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="img-cover">
+                  <img src="..." id="propertyTwoImg" alt="">
+                </div>
+                <div class="desc">
+                  <h1><span id="propertyTwoName"></span></h1><br><br>
+                  <button class="view-property" id="propertyTwo">Reserve</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="img-cover">
+                  <img src="..." id="propertyThreeImg" alt="">
+                </div>
+                <div class="desc">
+                  <h1><span id="propertyThreeName"></span></h1><br><br>
+                  <button class="view-property" id="propertyThree">Reserve</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="container">
+              <div class="card">
+                <div class="img-cover">
+                  <img src="..." id="propertyFourImg" alt="">
+                </div>
+                <div class="desc">
+                  <h1><span id="propertyFourName"></span></h1><br><br>
+                  <button class="view-property" id="propertyFour">Reserve</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="img-cover">
+                  <img src="..." id="propertyFiveImg" alt="">
+                </div>
+                <div class="desc">
+                  <h1><span id="propertyFiveName"></span></h1><br><br>
+                  <button class="view-property" id="propertyFive">Reserve</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="img-cover">
+                  <img src="..." id="propertySixImg" alt="">
+                </div>
+                <div class="desc">
+                  <h1><span id="propertySixName"></span></h1><br><br>
+                  <button class="view-property" id="propertySix">Reserve</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- available accommodation section ends -->
+
+    <!-- property info section starts -->
+    <div class="section" id="propertyInfo">
+      <div class="header">
+        <div id="goBackThree">
+          <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="info-section">
+        <div class="top-section">
+          <div class="container">
+            <img src="..." alt="" id="propertyImage">
+          </div>
+        </div>
+        <div class="bottom-section">
+          <div class="hotel-banner">
+            <h1><span class="propertyName"></span> - <span class="propertyPrice"></span>NZD per night</h1>
+            <button id="bookAccomodation">Reserve</button>
+          </div>
+          <div class="left-section">
+            <h3><span class="info"></span></h3>
+            <h3><span class="stayPrice"></span></h3>
+            <h3><span class="mealPrice"></span></h3>
+            <h3><span class="totalAmount"></span></h3><br>
+            <p id="propertyDescription"></p>
+            <ul>
+              <li>
+                <h3>Contact Us</h3>
+              </li>
+              <li>Contact: <span id="propertyContact"></span></li>
+              <li>Email: <span id="propertyEmail"></span></li>
+            </ul><br>
+            <ul>
+              <li>
+                <h3>Physical Address</h3>
+              </li>
+              <li id="propertyAddress"></li>
+            </ul>
+          </div>
+          <div class="right-section">
+            <h3>Directions</h3>
+            <div id='map'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- property info section ends -->
+
+    <!-- booking page starts -->
+    <div class="section" id="bookingPage">
+      <div class="slide" id="infoDisplay">
+        <div class="container">
+          <table>
+            <tr>
+              <td>Booking for : </td>
+              <th><span id="bookedPropertyName"></span></th>
+            </tr>
+            <tr>
+              <td>Stay nights : </td>
+              <th><span id="bookedPropertyNights"></span> nights.</th>
+            </tr>
+            <tr>
+              <td>Total booking amount : </td>
+              <th><span id="bookedPropertyPrice"></span> NZD.</th>
+            </tr>
+          </table>
+          <div class="buttons">
+            <button id="goBackFour">Cancel</button>
+            <button id="confirmBooking">Confirm</button>
+          </div>
+        </div>
+      </div>
+      <div class="slide" id="reservationDetails">
+        <div class="testbox">
+          <div id="contactForm" data-parsley-validate>
+            <fieldset>
+              <legend>Reservation Details</legend>
+              <div class="columns">
+                <div class="item">
+                  <label for="fname">First Name<span>*</span></label>
+                  <input id="fname" type="text" name="fname" data-parsley-required="true" data-parsley-required-message="Please enter alphabets only" required data-parsley-pattern="^[a-zA-Z ]+$" placeholder="John" />
+                </div>
+                <div class="item">
+                  <label for="lname"> Last Name<span>*</span></label>
+                  <input id="lname" type="text" name="lname" data-parsley-required="true" data-parsley-required-message="Please enter alphabets only" required data-parsley-pattern="^[a-zA-Z ]+$" placeholder="Doe" />
+                </div>
+                <div class="item">
+                  <label for="eaddress">Email Address<span>*</span></label>
+                  <input id="eaddress" type="text" name="eaddress" data-parsley-required="true" data-parsley-type="email" data-parsley-trigger="keyup" data-parsley-required-message="Please enter a valid email address"
+                    placeholder="johndoe@example.com" />
+                </div>
+                <div class="item">
+                  <label for="phone">Phone<span>*</span></label>
+                  <input id="phone" type="tel" name="phone" data-parsley-required="true" data-parsley-type="number" data-parsley-required-message="Please enter a valid phone number" placeholder="0123456789" />
+                </div>
+              </div>
+            </fieldset>
+            <div class="buttons">
+              <button id="bookingDone">Submit</button>
+              <button id="goBackFive">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- booking page ENDS -->
+
+    <!-- booking message starts -->
+    <div class="section" id="bookingMessage">
+      <div class="container">
+        <h1>Thank you for booking with us, <span id="fullname"></span>!</h1>
+        <h1>You will shortly recieve an email about the booking information.</h1>
+
+        <button id="startOver">Done</button>
+      </div>
+    </div>
+    <!-- booking message ENDS -->
+  </div>
+  <!-- full page ends -->
+
+  <!-- google jquery linked -->
+  <script src="js/google-jquery.js"></script>
+
+  <!-- fullpage js linked -->
+  <script src="js/fullpage.js"></script>
+
+  <!-- scrolloverflow js for fullpage linked -->
+  <script src="js/scrolloverflow.js"></script>
+
+  <!-- anime js linked -->
+  <script src="js/anime.min.js"></script>
+
+  <!-- fecha for hotel date picker linked -->
+  <script src="js/fecha.min.js"></script>
+
+  <!-- hotel datepicker js linked -->
+  <script src="js/hotel-datepicker.js"></script>
+
+  <!-- parsley linked -->
+  <script src="js/parsley.js"></script>
+
+  <!-- custom data linked -->
+  <script src="js/data.js"></script>
+
+  <!-- custom js linked -->
+  <script src="js/custom.js"></script>
+</body>
+
+</html>

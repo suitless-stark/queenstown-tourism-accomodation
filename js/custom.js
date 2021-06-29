@@ -65,6 +65,9 @@
   var custLName = document.querySelector('#lname');
   var fullname = document.querySelector('#fullname');
   var startOver = document.querySelector('#startOver');
+  var modal = document.querySelector('.modal');
+  var about = document.querySelector('.about');
+  var close = document.querySelector('#close');
 
   browseAccomodations.onclick = function() {
     fullpage_api.moveSectionDown();
@@ -975,5 +978,19 @@
 
   // banner function called
   banner();
+
+  about.onclick = function() {
+    modal.style.display = "block";
+  };
+
+  close.onclick = function() {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
 
 }());

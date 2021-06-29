@@ -216,7 +216,7 @@ Queenstown’s journey to becoming an internationally acclaimed four season reso
   });
   ```
 
-* Code Validation
+## Code Validation
   * HTML - using W3 Online HTML Validator
   ```html
   11 warnings, 0 errors
@@ -247,3 +247,11 @@ Queenstown’s journey to becoming an internationally acclaimed four season reso
   1 error regarding Gulp localhost in the console
   ```
   ![JS Validation](img/js-validation.png)
+
+## Future Development
+* As for the future development, I would like to implement transport options to the application, which would allow users to select a transport option based on their inputs.
+
+## Copyright
+* Video - Tourism New Zealand
+* Images - Unsplash.com & Queenstown Tourism
+* Fonts - Adobe Fonts
